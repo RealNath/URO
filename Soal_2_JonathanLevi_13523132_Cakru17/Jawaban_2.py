@@ -21,7 +21,7 @@ class Robot:
 
 class Battle:
     def start_fight(self, robot1, robot2):
-        while robot1.hp > 0 and robot2.hp > 0:
+        while (robot1.hp > 0) and (robot2.hp > 0):
             robot1.attack(robot2)
             time.sleep(0.5)
             if robot2.hp <= 0:
@@ -48,8 +48,8 @@ class Game:
             print(f"{self.robots[i].name} -", end=" ")
             print(f"❤️ {str(self.robots[i].hp)} |", end=" ")
             print(f"🗡️ {str(self.robots[i].atk)} |", end=" ")
-            print(f"⚡ {str(self.robots[i].hp)} |", end=" ")
-            print(f"💥 {str(self.robots[i].hp)}")
+            print(f"⚡ {str(int(self.robots[i].critRate * 100))}% |", end=" ")
+            print(f"💥 {str(int(self.robots[i].critDmg * 100))}%")
         while True:
             # first robot choice
             while True:
@@ -98,7 +98,7 @@ game = Game()
 
 robot1 = Robot("RoboOne", "└[∵┌] ", 50, 25, 0.36, 0.5)
 game.add_robot(robot1)
-robot2 = Robot("RoboTwo", "└|￣皿￣|┘", 68, 17, 0.75, 1.4)
+robot2 = Robot("RoboTwo", "└|￣皿￣|┘", 68, 13, 0.75, 1.4)
 game.add_robot(robot2)
 robot3 = Robot("RoboThree", "┌| ﾟдﾟ|/┘", 25, 36, 0.13, 1.1)
 game.add_robot(robot3)
